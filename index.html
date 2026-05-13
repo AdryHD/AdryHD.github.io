@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Adriana Hernández Durán · Portafolio</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --navy:   #0f2444;
+      --accent: #1d4ed8;
+      --accent2: #3b82f6;
+      --bg:     #f8fafc;
+      --card:   #ffffff;
+      --text:   #1e293b;
+      --muted:  #64748b;
+      --border: #e2e8f0;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+    }
+
+    /* ── HEADER ── */
+    header {
+      background: var(--navy);
+      color: #fff;
+      padding: 64px 24px 56px;
+      text-align: center;
+    }
+    header .avatar {
+      width: 88px; height: 88px;
+      border-radius: 50%;
+      background: var(--accent);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 2rem; font-weight: 700; color: #fff;
+      margin: 0 auto 20px;
+      letter-spacing: -1px;
+    }
+    header h1 { font-size: 1.75rem; font-weight: 700; letter-spacing: -0.5px; }
+    header p.role {
+      font-size: 0.95rem; color: #93c5fd; margin-top: 6px; font-weight: 400;
+    }
+    .header-links {
+      display: flex; gap: 16px; justify-content: center; margin-top: 20px; flex-wrap: wrap;
+    }
+    .header-links a {
+      color: #bfdbfe; text-decoration: none; font-size: 0.85rem;
+      border: 1px solid #334f7a; border-radius: 6px; padding: 6px 14px;
+      transition: background 0.2s, color 0.2s;
+    }
+    .header-links a:hover { background: var(--accent); color: #fff; border-color: var(--accent); }
+
+    /* ── SECTION WRAPPER ── */
+    main { max-width: 960px; margin: 0 auto; padding: 64px 24px 80px; }
+
+    .section-title {
+      font-size: 0.7rem; font-weight: 600; letter-spacing: 0.12em;
+      text-transform: uppercase; color: var(--accent);
+      margin-bottom: 28px;
+    }
+
+    /* ── ABOUT ── */
+    .about-text {
+      font-size: 0.97rem; color: var(--muted); max-width: 720px;
+      line-height: 1.75; margin-bottom: 56px;
+    }
+    .about-text strong { color: var(--text); }
+
+    /* ── SKILLS PILLS ── */
+    .pills { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 56px; }
+    .pill {
+      background: #eff6ff; color: var(--accent);
+      border: 1px solid #bfdbfe; border-radius: 999px;
+      font-size: 0.78rem; font-weight: 500; padding: 4px 12px;
+    }
+
+    /* ── PROJECT GRID ── */
+    .proj-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(420px, 1fr));
+      gap: 24px;
+      margin-bottom: 64px;
+    }
+    @media (max-width: 500px) { .proj-grid { grid-template-columns: 1fr; } }
+
+    .proj-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 28px;
+      display: flex; flex-direction: column; gap: 14px;
+      transition: box-shadow 0.2s, transform 0.2s;
+    }
+    .proj-card:hover { box-shadow: 0 8px 32px rgba(29,78,216,.10); transform: translateY(-2px); }
+
+    .proj-header { display: flex; align-items: flex-start; justify-content: space-between; gap: 12px; }
+    .proj-name { font-size: 1.05rem; font-weight: 600; color: var(--text); }
+    .proj-type {
+      font-size: 0.7rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.08em;
+      background: #eff6ff; color: var(--accent); border-radius: 6px; padding: 3px 8px;
+      white-space: nowrap;
+    }
+    .proj-desc { font-size: 0.875rem; color: var(--muted); line-height: 1.65; }
+
+    .proj-stack { display: flex; flex-wrap: wrap; gap: 6px; }
+    .tag {
+      background: #f1f5f9; color: #475569;
+      border-radius: 5px; font-size: 0.75rem; font-weight: 500;
+      padding: 3px 8px;
+    }
+
+    .proj-link {
+      display: inline-flex; align-items: center; gap: 6px;
+      color: var(--accent); font-size: 0.82rem; font-weight: 500;
+      text-decoration: none; margin-top: auto;
+    }
+    .proj-link:hover { color: var(--accent2); text-decoration: underline; }
+    .proj-link svg { flex-shrink: 0; }
+
+    /* ── CERTS ── */
+    .cert-list { display: flex; flex-direction: column; gap: 10px; margin-bottom: 64px; }
+    .cert-item {
+      display: flex; align-items: center; gap: 12px;
+      background: var(--card); border: 1px solid var(--border);
+      border-radius: 8px; padding: 14px 18px;
+    }
+    .cert-icon { color: var(--accent); flex-shrink: 0; }
+    .cert-name { font-size: 0.875rem; font-weight: 500; }
+    .cert-org { font-size: 0.78rem; color: var(--muted); margin-top: 2px; }
+
+    /* ── FOOTER ── */
+    footer {
+      text-align: center; font-size: 0.8rem; color: var(--muted);
+      border-top: 1px solid var(--border); padding: 32px 24px;
+    }
+    footer a { color: var(--accent); text-decoration: none; }
+    footer a:hover { text-decoration: underline; }
+  </style>
+</head>
+<body>
+
+<!-- ════════════════ HEADER ════════════════ -->
+<header>
+  <div class="avatar">AH</div>
+  <h1>Adriana Hernández Durán</h1>
+  <p class="role">Coordinadora de Operaciones &amp; Procesos &nbsp;·&nbsp; UX/UI Design &nbsp;·&nbsp; Ingeniería en Sistemas</p>
+  <div class="header-links">
+    <a href="https://github.com/AdryHD" target="_blank" rel="noopener">GitHub</a>
+    <a href="https://www.linkedin.com/in/adriana-hernández-durán" target="_blank" rel="noopener">LinkedIn</a>
+    <a href="mailto:adriana.hd@example.com">Contacto</a>
+  </div>
+</header>
+
+<!-- ════════════════ MAIN ════════════════ -->
+<main>
+
+  <!-- ABOUT -->
+  <p class="about-text">
+    Profesional con <strong>más de 15 años de experiencia operativa</strong> en el Poder Judicial, con trayectoria empírica
+    en gestión de proyectos, coordinación de equipos y stakeholders, y mejora de procesos institucionales.
+    Actualmente en formación en <strong>Ingeniería en Sistemas en UFidélitas</strong>, integrando ese recorrido con
+    habilidades aplicadas en diseño UX/UI, desarrollo web y móvil, bases de datos y redes.
+    <br><br>
+    Los proyectos de este portafolio fueron desarrollados en el contexto académico y representan trabajo técnico real.
+  </p>
+
+  <!-- STACK -->
+  <div class="section-title">Tecnologías aplicadas</div>
+  <div class="pills">
+    <span class="pill">PHP</span>
+    <span class="pill">MySQL</span>
+    <span class="pill">HTML · CSS</span>
+    <span class="pill">JavaScript</span>
+    <span class="pill">Java</span>
+    <span class="pill">SQL</span>
+    <span class="pill">FlutterFlow</span>
+    <span class="pill">Firebase</span>
+    <span class="pill">Penpot</span>
+    <span class="pill">Figma</span>
+    <span class="pill">UX Research</span>
+    <span class="pill">Design Thinking</span>
+    <span class="pill">Power BI</span>
+    <span class="pill">GitHub</span>
+    <span class="pill">Redes CCNA</span>
+  </div>
+
+  <!-- PROJECTS -->
+  <div class="section-title">Proyectos destacados</div>
+  <div class="proj-grid">
+
+    <!-- PowerZone -->
+    <div class="proj-card">
+      <div class="proj-header">
+        <div class="proj-name">PowerZone – Sistema de Gestión</div>
+        <span class="proj-type">Web App · Full Stack</span>
+      </div>
+      <p class="proj-desc">
+        Sistema completo de gestión para un gimnasio: registro de membresías, control de acceso, administración de pagos
+        y panel de reportes. Desarrollado con arquitectura MVC en PHP puro con base de datos MySQL.
+      </p>
+      <div class="proj-stack">
+        <span class="tag">PHP</span>
+        <span class="tag">MySQL</span>
+        <span class="tag">JavaScript</span>
+        <span class="tag">CSS</span>
+        <span class="tag">MVC</span>
+      </div>
+      <a class="proj-link" href="https://github.com/AdryHD/PowerZone" target="_blank" rel="noopener">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
+        github.com/AdryHD/PowerZone
+      </a>
+    </div>
+
+    <!-- Meraki -->
+    <div class="proj-card">
+      <div class="proj-header">
+        <div class="proj-name">Meraki – App de Citas (Barbería)</div>
+        <span class="proj-type">Mobile App · Full Stack</span>
+      </div>
+      <p class="proj-desc">
+        Aplicación móvil para gestión de citas en una barbería. Incluye flujo de reserva, administración de servicios
+        y panel para el barbero. Diseño UX completo con enfoque en experiencia del usuario y desarrollo sin código con FlutterFlow y Firebase.
+      </p>
+      <div class="proj-stack">
+        <span class="tag">FlutterFlow</span>
+        <span class="tag">Firebase</span>
+        <span class="tag">UX Design</span>
+        <span class="tag">Prototipado</span>
+      </div>
+      <a class="proj-link" href="https://app.flutterflow.io/project/meraki" target="_blank" rel="noopener">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+        Ver en FlutterFlow
+      </a>
+    </div>
+
+    <!-- CodeKids CR -->
+    <div class="proj-card">
+      <div class="proj-header">
+        <div class="proj-name">CodeKids CR – Plataforma Educativa</div>
+        <span class="proj-type">UX Design · Prototipado</span>
+      </div>
+      <p class="proj-desc">
+        Diseño UX/UI completo de una plataforma educativa de programación para niños costarricenses. Proceso desde
+        investigación de usuarios (UX Research), definición de arquitectura de información, wireframes y prototipo
+        interactivo de alta fidelidad en Penpot.
+      </p>
+      <div class="proj-stack">
+        <span class="tag">Penpot</span>
+        <span class="tag">UX Research</span>
+        <span class="tag">Design Thinking</span>
+        <span class="tag">Wireframing</span>
+        <span class="tag">Prototipado</span>
+      </div>
+      <a class="proj-link" href="https://penpot.app" target="_blank" rel="noopener">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+        Ver prototipo en Penpot
+      </a>
+    </div>
+
+    <!-- Que Arte Pastelería -->
+    <div class="proj-card">
+      <div class="proj-header">
+        <div class="proj-name">Que Arte Pastelería – App Web</div>
+        <span class="proj-type">Web Dev · Backend</span>
+      </div>
+      <p class="proj-desc">
+        Aplicación web para pastelería artesanal con catálogo de productos, sistema de pedidos en línea y administración
+        de inventario. Proyecto grupal con enfoque en backend Java y base de datos relacional.
+      </p>
+      <div class="proj-stack">
+        <span class="tag">Java</span>
+        <span class="tag">HTML</span>
+        <span class="tag">CSS</span>
+        <span class="tag">SQL</span>
+      </div>
+      <a class="proj-link" href="https://github.com/Tomas-2111/Proyecto_Pasteleria_G5" target="_blank" rel="noopener">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
+        github.com/Tomas-2111/Proyecto_Pasteleria_G5
+      </a>
+    </div>
+
+  </div><!-- /proj-grid -->
+
+  <!-- CERTIFICATIONS -->
+  <div class="section-title">Certificaciones</div>
+  <div class="cert-list">
+    <div class="cert-item">
+      <svg class="cert-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="8" r="6"/><path d="M15.477 12.89L17 22l-5-3-5 3 1.523-9.11"/></svg>
+      <div>
+        <div class="cert-name">Scrum Foundation Certificate (SFC) · ID 1070040</div>
+        <div class="cert-org">SCRUMstudy</div>
+      </div>
+    </div>
+    <div class="cert-item">
+      <svg class="cert-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="8" r="6"/><path d="M15.477 12.89L17 22l-5-3-5 3 1.523-9.11"/></svg>
+      <div>
+        <div class="cert-name">CCNAv7: Introduction to Networks</div>
+        <div class="cert-org">Cisco Networking Academy</div>
+      </div>
+    </div>
+    <div class="cert-item">
+      <svg class="cert-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="8" r="6"/><path d="M15.477 12.89L17 22l-5-3-5 3 1.523-9.11"/></svg>
+      <div>
+        <div class="cert-name">CCNAv7: Switching, Routing and Wireless Essentials</div>
+        <div class="cert-org">Cisco Networking Academy</div>
+      </div>
+    </div>
+    <div class="cert-item">
+      <svg class="cert-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="8" r="6"/><path d="M15.477 12.89L17 22l-5-3-5 3 1.523-9.11"/></svg>
+      <div>
+        <div class="cert-name">Introduction to IoT</div>
+        <div class="cert-org">Cisco Networking Academy</div>
+      </div>
+    </div>
+  </div>
+
+</main>
+
+<!-- ════════════════ FOOTER ════════════════ -->
+<footer>
+  Adriana Hernández Durán &nbsp;·&nbsp; Heredia, Costa Rica &nbsp;·&nbsp;
+  <a href="https://github.com/AdryHD" target="_blank" rel="noopener">github.com/AdryHD</a>
+  &nbsp;·&nbsp; Actualizado mayo 2026
+</footer>
+
+</body>
+</html>
