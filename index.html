@@ -6,345 +6,330 @@
   <title>Adriana Hernández Durán · Portafolio</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
     :root {
-      --navy: #0f1f35; --accent: #2563eb; --accent2: #3b82f6;
-      --bg: #f8fafc; --card: #ffffff; --text: #0f172a;
-      --muted: #64748b; --border: #e2e8f0; --radius: 14px;
+      --navy:   #0f2444;
+      --accent: #1d4ed8;
+      --accent2: #3b82f6;
+      --bg:     #f8fafc;
+      --card:   #ffffff;
+      --text:   #1e293b;
+      --muted:  #64748b;
+      --border: #e2e8f0;
     }
-    html { scroll-behavior: smooth; }
-    body { font-family: 'Inter', system-ui, sans-serif; background: var(--bg); color: var(--text); line-height: 1.6; overflow-x: hidden; }
-    /* NAV */
-    nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; background: rgba(15,31,53,0.94); backdrop-filter: blur(14px); border-bottom: 1px solid rgba(255,255,255,0.07); padding: 0 40px; display: flex; align-items: center; justify-content: space-between; height: 58px; }
-    .nav-logo { font-size: .88rem; font-weight: 700; color: #fff; text-decoration: none; }
-    .nav-logo span { color: #60a5fa; }
-    .nav-links { display: flex; gap: 4px; }
-    .nav-links a { color: rgba(255,255,255,.55); font-size: .82rem; font-weight: 500; text-decoration: none; padding: 6px 13px; border-radius: 8px; transition: color .2s, background .2s; }
-    .nav-links a:hover { color: #fff; background: rgba(255,255,255,.08); }
-    .nav-cta { background: var(--accent) !important; color: #fff !important; }
-    .nav-cta:hover { background: var(--accent2) !important; }
-    /* HERO */
-    .hero { min-height: 100vh; background: var(--navy); display: flex; align-items: center; padding: 100px 40px 80px; position: relative; overflow: hidden; }
-    .hero::before { content: ''; position: absolute; inset: 0; background: radial-gradient(ellipse 65% 60% at 72% 50%, rgba(37,99,235,.20) 0%, transparent 70%), radial-gradient(ellipse 40% 40% at 8% 80%, rgba(124,58,237,.13) 0%, transparent 60%); pointer-events: none; }
-    .hero-inner { max-width: 1100px; margin: 0 auto; width: 100%; display: grid; grid-template-columns: 1fr 360px; gap: 60px; align-items: center; }
-    .hero-badge { display: inline-flex; align-items: center; gap: 8px; background: rgba(37,99,235,.15); border: 1px solid rgba(37,99,235,.30); color: #93c5fd; font-size: .74rem; font-weight: 500; letter-spacing: .04em; padding: 5px 13px; border-radius: 999px; margin-bottom: 22px; }
-    .hero-badge-dot { width: 6px; height: 6px; border-radius: 50%; background: #3b82f6; }
-    .hero h1 { font-size: clamp(2.2rem, 3.8vw, 3.2rem); font-weight: 800; color: #fff; line-height: 1.12; letter-spacing: -1.5px; margin-bottom: 20px; }
-    .hero h1 em { font-style: normal; color: #60a5fa; }
-    .hero-sub { font-size: 1rem; color: rgba(255,255,255,.55); line-height: 1.78; max-width: 520px; margin-bottom: 36px; }
-    .hero-sub strong { color: rgba(255,255,255,.82); font-weight: 500; }
-    .hero-btns { display: flex; gap: 10px; flex-wrap: wrap; }
-    .btn-p { display: inline-flex; align-items: center; gap: 8px; background: var(--accent); color: #fff; font-size: .875rem; font-weight: 600; padding: 12px 22px; border-radius: 10px; text-decoration: none; box-shadow: 0 4px 18px rgba(37,99,235,.38); transition: background .2s, transform .15s; }
-    .btn-p:hover { background: var(--accent2); transform: translateY(-1px); }
-    .btn-o { display: inline-flex; align-items: center; gap: 8px; background: transparent; color: rgba(255,255,255,.75); font-size: .875rem; font-weight: 500; padding: 12px 22px; border-radius: 10px; text-decoration: none; border: 1px solid rgba(255,255,255,.18); transition: background .2s, color .2s; }
-    .btn-o:hover { background: rgba(255,255,255,.06); color: #fff; }
-    /* HERO CARD */
-    .hero-card { background: rgba(255,255,255,.045); border: 1px solid rgba(255,255,255,.10); border-radius: 18px; padding: 26px; }
-    .hc-avatar { width: 60px; height: 60px; border-radius: 50%; background: linear-gradient(135deg,#2563eb,#7c3aed); display: flex; align-items: center; justify-content: center; font-size: 1.3rem; font-weight: 800; color: #fff; margin-bottom: 14px; }
-    .hero-card h3 { font-size: .95rem; font-weight: 700; color: #fff; margin-bottom: 2px; }
-    .hero-card p { font-size: .75rem; color: rgba(255,255,255,.40); margin-bottom: 18px; }
-    .hc-stats { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
-    .hc-stat { background: rgba(255,255,255,.05); border: 1px solid rgba(255,255,255,.07); border-radius: 10px; padding: 11px 13px; }
-    .hc-val { font-size: 1.3rem; font-weight: 700; color: #fff; line-height: 1; }
-    .hc-val span { font-size: .65rem; color: rgba(255,255,255,.38); }
-    .hc-lbl { font-size: .67rem; color: rgba(255,255,255,.38); margin-top: 3px; }
-    .hc-tags { display: flex; flex-wrap: wrap; gap: 5px; margin-top: 14px; }
-    .hc-tag { font-size: .68rem; font-weight: 500; padding: 3px 9px; border-radius: 999px; background: rgba(37,99,235,.18); color: #93c5fd; border: 1px solid rgba(37,99,235,.25); }
-    /* SECTIONS */
-    section { padding: 90px 40px; }
-    section:nth-child(even) { background: #fff; }
-    .si { max-width: 1100px; margin: 0 auto; }
-    .s-label { font-size: .7rem; font-weight: 600; letter-spacing: .12em; text-transform: uppercase; color: var(--accent); display: flex; align-items: center; gap: 10px; margin-bottom: 10px; }
-    .s-label::after { content: ''; flex: 1; max-width: 36px; height: 1px; background: var(--accent); opacity: .4; }
-    .s-title { font-size: clamp(1.45rem, 2.4vw, 1.9rem); font-weight: 800; letter-spacing: -.5px; margin-bottom: 8px; }
-    .s-desc { font-size: .96rem; color: var(--muted); max-width: 540px; line-height: 1.72; margin-bottom: 44px; }
-    /* ABOUT */
-    .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; align-items: start; }
-    .at p { font-size: .96rem; color: var(--muted); line-height: 1.82; margin-bottom: 14px; }
-    .at strong { color: var(--text); font-weight: 600; }
-    .ah-list { display: flex; flex-direction: column; gap: 12px; }
-    .ah { display: flex; gap: 14px; align-items: flex-start; background: var(--bg); border: 1px solid var(--border); border-radius: 12px; padding: 15px 17px; transition: border-color .2s, box-shadow .2s; }
-    .ah:hover { border-color: #bfdbfe; box-shadow: 0 4px 16px rgba(37,99,235,.08); }
-    .ah-ico { width: 36px; height: 36px; border-radius: 9px; flex-shrink: 0; display: flex; align-items: center; justify-content: center; font-size: .95rem; }
-    .ico-b { background: #eff6ff; } .ico-g { background: #f0fdf4; } .ico-p { background: #f5f3ff; }
-    .ah-t { font-size: .85rem; font-weight: 600; color: var(--text); margin-bottom: 2px; }
-    .ah-d { font-size: .78rem; color: var(--muted); line-height: 1.52; }
-    /* SKILLS */
-    .sk-grid { display: grid; grid-template-columns: repeat(4,1fr); gap: 14px; }
-    .sk-card { background: var(--card); border: 1px solid var(--border); border-radius: var(--radius); padding: 20px 18px; transition: border-color .2s, box-shadow .2s, transform .2s; }
-    .sk-card:hover { border-color: #bfdbfe; box-shadow: 0 6px 22px rgba(37,99,235,.09); transform: translateY(-2px); }
-    .sk-ico { width: 38px; height: 38px; border-radius: 9px; display: flex; align-items: center; justify-content: center; font-size: 1rem; margin-bottom: 12px; }
-    .sk-t { font-size: .78rem; font-weight: 700; color: var(--text); margin-bottom: 9px; text-transform: uppercase; letter-spacing: .04em; }
-    .sk-pills { display: flex; flex-wrap: wrap; gap: 5px; }
-    .sp { font-size: .71rem; font-weight: 500; padding: 3px 8px; border-radius: 999px; background: var(--bg); border: 1px solid var(--border); color: var(--muted); }
-    /* PROJECTS */
-    .pj-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 22px; }
-    .pj-card { background: var(--card); border: 1px solid var(--border); border-radius: 18px; overflow: hidden; display: flex; flex-direction: column; transition: box-shadow .25s, transform .25s; }
-    .pj-card:hover { box-shadow: 0 12px 40px rgba(0,0,0,.10); transform: translateY(-3px); }
-    .pj-banner { height: 120px; display: flex; align-items: center; justify-content: center; font-size: 2.8rem; }
-    .bn-blue { background: linear-gradient(135deg,#1d4ed8,#3b82f6); }
-    .bn-teal { background: linear-gradient(135deg,#0d9488,#2dd4bf); }
-    .bn-purple { background: linear-gradient(135deg,#6d28d9,#a78bfa); }
-    .bn-amber { background: linear-gradient(135deg,#b45309,#fbbf24); }
-    .pj-body { padding: 20px 22px 22px; display: flex; flex-direction: column; flex: 1; gap: 9px; }
-    .pj-meta { display: flex; gap: 6px; flex-wrap: wrap; }
-    .pj-badge { font-size: .66rem; font-weight: 600; text-transform: uppercase; letter-spacing: .07em; padding: 3px 8px; border-radius: 999px; }
-    .bg-bl { background:#eff6ff; color:#1d4ed8; } .bg-tl { background:#f0fdfa; color:#0d9488; }
-    .bg-pu { background:#f5f3ff; color:#6d28d9; } .bg-am { background:#fffbeb; color:#b45309; }
-    .pj-name { font-size: 1rem; font-weight: 700; color: var(--text); line-height: 1.25; }
-    .pj-desc { font-size: .825rem; color: var(--muted); line-height: 1.65; }
-    .pj-stack { display: flex; flex-wrap: wrap; gap: 5px; }
-    .pj-tag { font-size: .7rem; font-weight: 500; padding: 3px 8px; border-radius: 6px; background: var(--bg); border: 1px solid var(--border); color: var(--muted); }
-    .pj-foot { display: flex; padding-top: 12px; border-top: 1px solid var(--border); margin-top: auto; }
-    .pj-link { display: inline-flex; align-items: center; gap: 5px; font-size: .81rem; font-weight: 600; color: var(--accent); text-decoration: none; transition: gap .2s; }
-    .pj-link:hover { gap: 8px; }
-    .pj-link svg { transition: transform .2s; }
-    .pj-link:hover svg { transform: translateX(3px); }
-    /* CERTS */
-    .ce-grid { display: grid; grid-template-columns: repeat(2,1fr); gap: 14px; }
-    .ce-card { display: flex; gap: 14px; align-items: flex-start; background: var(--card); border: 1px solid var(--border); border-radius: var(--radius); padding: 18px 20px; transition: border-color .2s, box-shadow .2s; }
-    .ce-card:hover { border-color: #bfdbfe; box-shadow: 0 4px 14px rgba(37,99,235,.08); }
-    .ce-ico { width: 40px; height: 40px; border-radius: 9px; flex-shrink: 0; background: #eff6ff; display: flex; align-items: center; justify-content: center; color: var(--accent); }
-    .ce-name { font-size: .86rem; font-weight: 600; color: var(--text); line-height: 1.3; }
-    .ce-org { font-size: .76rem; color: var(--muted); margin-top: 3px; }
-    /* CTA */
-    .cta { background: var(--navy); padding: 90px 40px; text-align: center; position: relative; overflow: hidden; }
-    .cta::before { content: ''; position: absolute; inset: 0; background: radial-gradient(ellipse 60% 70% at 50% 50%, rgba(37,99,235,.22) 0%, transparent 70%); pointer-events: none; }
-    .cta h2 { font-size: clamp(1.6rem, 2.8vw, 2.3rem); font-weight: 800; color: #fff; letter-spacing: -.5px; margin-bottom: 12px; position: relative; }
-    .cta p { font-size: .97rem; color: rgba(255,255,255,.48); margin-bottom: 34px; position: relative; }
-    .cta-btns { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; position: relative; }
-    /* FOOTER */
-    footer { background: #070d17; padding: 26px 40px; text-align: center; font-size: .78rem; color: rgba(255,255,255,.22); }
-    footer a { color: rgba(255,255,255,.38); text-decoration: none; }
-    footer a:hover { color: rgba(255,255,255,.65); }
-    /* RESPONSIVE */
-    @media (max-width: 920px) {
-      .hero-inner { grid-template-columns: 1fr; }
-      .hero-card { display: none; }
-      .about-grid { grid-template-columns: 1fr; }
-      .sk-grid { grid-template-columns: repeat(2,1fr); }
-      .pj-grid { grid-template-columns: 1fr; }
-      .ce-grid { grid-template-columns: 1fr; }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
     }
-    @media (max-width: 560px) {
-      nav { padding: 0 18px; } .nav-links { display: none; }
-      section, .cta { padding: 64px 20px; }
-      .hero { padding: 80px 20px 60px; }
-      .sk-grid { grid-template-columns: 1fr; }
+
+    /* ── HEADER ── */
+    header {
+      background: var(--navy);
+      color: #fff;
+      padding: 64px 24px 56px;
+      text-align: center;
     }
+    header .avatar {
+      width: 88px; height: 88px;
+      border-radius: 50%;
+      background: var(--accent);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 2rem; font-weight: 700; color: #fff;
+      margin: 0 auto 20px;
+      letter-spacing: -1px;
+    }
+    header h1 { font-size: 1.75rem; font-weight: 700; letter-spacing: -0.5px; }
+    header p.role {
+      font-size: 0.95rem; color: #93c5fd; margin-top: 6px; font-weight: 400;
+    }
+    .header-links {
+      display: flex; gap: 16px; justify-content: center; margin-top: 20px; flex-wrap: wrap;
+    }
+    .header-links a {
+      color: #bfdbfe; text-decoration: none; font-size: 0.85rem;
+      border: 1px solid #334f7a; border-radius: 6px; padding: 6px 14px;
+      transition: background 0.2s, color 0.2s;
+    }
+    .header-links a:hover { background: var(--accent); color: #fff; border-color: var(--accent); }
+
+    /* ── SECTION WRAPPER ── */
+    main { max-width: 960px; margin: 0 auto; padding: 64px 24px 80px; }
+
+    .section-title {
+      font-size: 0.7rem; font-weight: 600; letter-spacing: 0.12em;
+      text-transform: uppercase; color: var(--accent);
+      margin-bottom: 28px;
+    }
+
+    /* ── ABOUT ── */
+    .about-text {
+      font-size: 0.97rem; color: var(--muted); max-width: 720px;
+      line-height: 1.75; margin-bottom: 56px;
+    }
+    .about-text strong { color: var(--text); }
+
+    /* ── SKILLS PILLS ── */
+    .pills { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 56px; }
+    .pill {
+      background: #eff6ff; color: var(--accent);
+      border: 1px solid #bfdbfe; border-radius: 999px;
+      font-size: 0.78rem; font-weight: 500; padding: 4px 12px;
+    }
+
+    /* ── PROJECT GRID ── */
+    .proj-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(420px, 1fr));
+      gap: 24px;
+      margin-bottom: 64px;
+    }
+    @media (max-width: 500px) { .proj-grid { grid-template-columns: 1fr; } }
+
+    .proj-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 28px;
+      display: flex; flex-direction: column; gap: 14px;
+      transition: box-shadow 0.2s, transform 0.2s;
+    }
+    .proj-card:hover { box-shadow: 0 8px 32px rgba(29,78,216,.10); transform: translateY(-2px); }
+
+    .proj-header { display: flex; align-items: flex-start; justify-content: space-between; gap: 12px; }
+    .proj-name { font-size: 1.05rem; font-weight: 600; color: var(--text); }
+    .proj-type {
+      font-size: 0.7rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.08em;
+      background: #eff6ff; color: var(--accent); border-radius: 6px; padding: 3px 8px;
+      white-space: nowrap;
+    }
+    .proj-desc { font-size: 0.875rem; color: var(--muted); line-height: 1.65; }
+
+    .proj-stack { display: flex; flex-wrap: wrap; gap: 6px; }
+    .tag {
+      background: #f1f5f9; color: #475569;
+      border-radius: 5px; font-size: 0.75rem; font-weight: 500;
+      padding: 3px 8px;
+    }
+
+    .proj-link {
+      display: inline-flex; align-items: center; gap: 6px;
+      color: var(--accent); font-size: 0.82rem; font-weight: 500;
+      text-decoration: none; margin-top: auto;
+    }
+    .proj-link:hover { color: var(--accent2); text-decoration: underline; }
+    .proj-link svg { flex-shrink: 0; }
+
+    /* ── CERTS ── */
+    .cert-list { display: flex; flex-direction: column; gap: 10px; margin-bottom: 64px; }
+    .cert-item {
+      display: flex; align-items: center; gap: 12px;
+      background: var(--card); border: 1px solid var(--border);
+      border-radius: 8px; padding: 14px 18px;
+    }
+    .cert-icon { color: var(--accent); flex-shrink: 0; }
+    .cert-name { font-size: 0.875rem; font-weight: 500; }
+    .cert-org { font-size: 0.78rem; color: var(--muted); margin-top: 2px; }
+
+    /* ── FOOTER ── */
+    footer {
+      text-align: center; font-size: 0.8rem; color: var(--muted);
+      border-top: 1px solid var(--border); padding: 32px 24px;
+    }
+    footer a { color: var(--accent); text-decoration: none; }
+    footer a:hover { text-decoration: underline; }
   </style>
 </head>
 <body>
 
-<nav>
-  <a class="nav-logo" href="#inicio"><span>A</span>driana HD</a>
-  <div class="nav-links">
-    <a href="#sobre-mi">Sobre m&#237;</a>
-    <a href="#skills">Skills</a>
-    <a href="#proyectos">Proyectos</a>
-    <a href="#certs">Certificaciones</a>
-    <a href="mailto:adryannahz@gmail.com" class="nav-cta">Contacto</a>
+<!-- ════════════════ HEADER ════════════════ -->
+<header>
+  <div class="avatar">AH</div>
+  <h1>Adriana Hernández Durán</h1>
+  <p class="role">Coordinadora de Operaciones &amp; Procesos &nbsp;·&nbsp; UX/UI Design &nbsp;·&nbsp; Ingeniería en Sistemas</p>
+  <div class="header-links">
+    <a href="https://github.com/AdryHD" target="_blank" rel="noopener">GitHub</a>
+    <a href="https://www.linkedin.com/in/adriana-hern%C3%A1ndez-dur%C3%A1n-3a87652b9/" target="_blank" rel="noopener">LinkedIn</a>
+    <a href="mailto:adryannahz@gmail.com">Contacto</a>
   </div>
-</nav>
+</header>
 
-<div class="hero" id="inicio">
-  <div class="hero-inner">
-    <div>
-      <div class="hero-badge"><span class="hero-badge-dot"></span>Disponible para nuevas oportunidades</div>
-      <h1>Operations &amp; Process<br><em>Coordinator</em> &middot; UX/UI<br>&middot; Systems Engineer</h1>
-      <p class="hero-sub"><strong>+15 a&#241;os gestionando proyectos, equipos y plazos</strong> en el Poder Judicial, hoy potenciada con formaci&#243;n en Ingenier&#237;a en Sistemas, dise&#241;o UX/UI, desarrollo web y m&#243;vil. Puente real entre el negocio y la tecnolog&#237;a.</p>
-      <div class="hero-btns">
-        <a href="#proyectos" class="btn-p">
-          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg>
-          Ver proyectos
-        </a>
-        <a href="https://www.linkedin.com/in/adriana-hern%C3%A1ndez-dur%C3%A1n-3a87652b9/" target="_blank" rel="noopener" class="btn-o">
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z"/><circle cx="4" cy="4" r="2"/></svg>
-          LinkedIn
-        </a>
-        <a href="https://github.com/AdryHD" target="_blank" rel="noopener" class="btn-o">
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 00-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0020 4.77 5.07 5.07 0 0019.91 1S18.73.65 16 2.48a13.38 13.38 0 00-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 005 4.77a5.44 5.44 0 00-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 009 18.13V22"/></svg>
-          GitHub
-        </a>
+<!-- ════════════════ MAIN ════════════════ -->
+<main>
+
+  <!-- ABOUT -->
+  <p class="about-text">
+    Profesional con <strong>más de 15 años de experiencia operativa</strong> en el Poder Judicial, con trayectoria empírica
+    en gestión de proyectos, coordinación de equipos y stakeholders, y mejora de procesos institucionales.
+    Actualmente en formación en <strong>Ingeniería en Sistemas en UFidélitas</strong>, integrando ese recorrido con
+    habilidades aplicadas en diseño UX/UI, desarrollo web y móvil, bases de datos y redes.
+    <br><br>
+    Los proyectos de este portafolio fueron desarrollados en el contexto académico y representan trabajo técnico real.
+  </p>
+
+  <!-- STACK -->
+  <div class="section-title">Tecnologías aplicadas</div>
+  <div class="pills">
+    <span class="pill">PHP</span>
+    <span class="pill">MySQL</span>
+    <span class="pill">HTML · CSS</span>
+    <span class="pill">JavaScript</span>
+    <span class="pill">Java</span>
+    <span class="pill">SQL</span>
+    <span class="pill">FlutterFlow</span>
+    <span class="pill">Firebase</span>
+    <span class="pill">Penpot</span>
+    <span class="pill">Figma</span>
+    <span class="pill">UX Research</span>
+    <span class="pill">Design Thinking</span>
+    <span class="pill">Power BI</span>
+    <span class="pill">GitHub</span>
+    <span class="pill">Redes CCNA</span>
+  </div>
+
+  <!-- PROJECTS -->
+  <div class="section-title">Proyectos destacados</div>
+  <div class="proj-grid">
+
+    <!-- PowerZone -->
+    <div class="proj-card">
+      <div class="proj-header">
+        <div class="proj-name">PowerZone – Sistema de Gestión</div>
+        <span class="proj-type">Web App · Full Stack</span>
+      </div>
+      <p class="proj-desc">
+        Sistema completo de gestión para un gimnasio: registro de membresías, control de acceso, administración de pagos
+        y panel de reportes. Desarrollado con arquitectura MVC en PHP puro con base de datos MySQL.
+      </p>
+      <div class="proj-stack">
+        <span class="tag">PHP</span>
+        <span class="tag">MySQL</span>
+        <span class="tag">JavaScript</span>
+        <span class="tag">CSS</span>
+        <span class="tag">MVC</span>
+      </div>
+      <a class="proj-link" href="https://github.com/AdryHD/PowerZone" target="_blank" rel="noopener">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
+        github.com/AdryHD/PowerZone
+      </a>
+    </div>
+
+    <!-- Meraki -->
+    <div class="proj-card">
+      <div class="proj-header">
+        <div class="proj-name">Meraki – App de Citas (Barbería)</div>
+        <span class="proj-type">Mobile App · Full Stack</span>
+      </div>
+      <p class="proj-desc">
+        Aplicación móvil para gestión de citas en una barbería. Incluye flujo de reserva, administración de servicios
+        y panel para el barbero. Diseño UX completo con enfoque en experiencia del usuario y desarrollo sin código con FlutterFlow y Firebase.
+      </p>
+      <div class="proj-stack">
+        <span class="tag">FlutterFlow</span>
+        <span class="tag">Firebase</span>
+        <span class="tag">UX Design</span>
+        <span class="tag">Prototipado</span>
+      </div>
+      <a class="proj-link" href="https://app.flutterflow.io/project/meraki" target="_blank" rel="noopener">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+        Ver en FlutterFlow
+      </a>
+    </div>
+
+    <!-- CodeKids CR -->
+    <div class="proj-card">
+      <div class="proj-header">
+        <div class="proj-name">CodeKids CR – Plataforma Educativa</div>
+        <span class="proj-type">UX Design · Prototipado</span>
+      </div>
+      <p class="proj-desc">
+        Diseño UX/UI completo de una plataforma educativa de programación para niños costarricenses. Proceso desde
+        investigación de usuarios (UX Research), definición de arquitectura de información, wireframes y prototipo
+        interactivo de alta fidelidad en Penpot.
+      </p>
+      <div class="proj-stack">
+        <span class="tag">Penpot</span>
+        <span class="tag">UX Research</span>
+        <span class="tag">Design Thinking</span>
+        <span class="tag">Wireframing</span>
+        <span class="tag">Prototipado</span>
+      </div>
+      <a class="proj-link" href="https://penpot.app" target="_blank" rel="noopener">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+        Ver prototipo en Penpot
+      </a>
+    </div>
+
+    <!-- Que Arte Pastelería -->
+    <div class="proj-card">
+      <div class="proj-header">
+        <div class="proj-name">Que Arte Pastelería – App Web</div>
+        <span class="proj-type">Web Dev · Backend</span>
+      </div>
+      <p class="proj-desc">
+        Aplicación web para pastelería artesanal con catálogo de productos, sistema de pedidos en línea y administración
+        de inventario. Proyecto grupal con enfoque en backend Java y base de datos relacional.
+      </p>
+      <div class="proj-stack">
+        <span class="tag">Java</span>
+        <span class="tag">HTML</span>
+        <span class="tag">CSS</span>
+        <span class="tag">SQL</span>
+      </div>
+      <a class="proj-link" href="https://github.com/Tomas-2111/Proyecto_Pasteleria_G5" target="_blank" rel="noopener">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
+        github.com/Tomas-2111/Proyecto_Pasteleria_G5
+      </a>
+    </div>
+
+  </div><!-- /proj-grid -->
+
+  <!-- CERTIFICATIONS -->
+  <div class="section-title">Certificaciones</div>
+  <div class="cert-list">
+    <div class="cert-item">
+      <svg class="cert-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="8" r="6"/><path d="M15.477 12.89L17 22l-5-3-5 3 1.523-9.11"/></svg>
+      <div>
+        <div class="cert-name">Scrum Foundation Certificate (SFC) · ID 1070040</div>
+        <div class="cert-org">SCRUMstudy</div>
       </div>
     </div>
-    <div class="hero-card">
-      <div class="hc-avatar">AH</div>
-      <h3>Adriana Hern&#225;ndez Dur&#225;n</h3>
-      <p>Heredia, Costa Rica &middot; adryannahz@gmail.com</p>
-      <div class="hc-stats">
-        <div class="hc-stat"><div class="hc-val">15<span>+</span></div><div class="hc-lbl">A&#241;os de experiencia</div></div>
-        <div class="hc-stat"><div class="hc-val">4</div><div class="hc-lbl">Proyectos destacados</div></div>
-        <div class="hc-stat"><div class="hc-val">97<span>.2</span></div><div class="hc-lbl">GPA universitario</div></div>
-        <div class="hc-stat"><div class="hc-val">4</div><div class="hc-lbl">Certificaciones</div></div>
-      </div>
-      <div class="hc-tags">
-        <span class="hc-tag">Scrum SFC</span>
-        <span class="hc-tag">CCNA</span>
-        <span class="hc-tag">UX/UI</span>
-        <span class="hc-tag">Full Stack</span>
-        <span class="hc-tag">PM Emp&#237;rico</span>
+    <div class="cert-item">
+      <svg class="cert-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="8" r="6"/><path d="M15.477 12.89L17 22l-5-3-5 3 1.523-9.11"/></svg>
+      <div>
+        <div class="cert-name">CCNAv7: Introduction to Networks</div>
+        <div class="cert-org">Cisco Networking Academy</div>
       </div>
     </div>
-  </div>
-</div>
-
-<section id="sobre-mi">
-  <div class="si">
-    <div class="s-label">Sobre m&#237;</div>
-    <h2 class="s-title">M&#225;s de una d&#233;cada construyendo<br>procesos que funcionan.</h2>
-    <div class="about-grid">
-      <div class="at">
-        <p>Durante <strong>m&#225;s de 15 a&#241;os en el Poder Judicial de Costa Rica</strong>, coordin&#233; proyectos, equipos y plazos institucionales de forma emp&#237;rica &#8212; gestionando stakeholders, entregables, riesgos operativos y reportes a nivel directivo.</p>
-        <p>Hoy integro esa trayectoria con formaci&#243;n en <strong>Ingenier&#237;a en Sistemas en UFid&#233;litas</strong> (GPA 97.2, avance 66%), con proyectos aplicados en UX/UI, desarrollo web y m&#243;vil, bases de datos y redes.</p>
-        <p>Traduzco con naturalidad entre el lenguaje del negocio y el del equipo t&#233;cnico: eso me convierte en un <strong>puente genuino entre operaciones y tecnolog&#237;a</strong>.</p>
-      </div>
-      <div class="ah-list">
-        <div class="ah">
-          <div class="ah-ico ico-b">&#128203;</div>
-          <div><div class="ah-t">Gesti&#243;n de Proyectos Emp&#237;rica</div><div class="ah-d">Alcance, plazos, entregables, stakeholders y riesgo institucional en entornos de alta complejidad.</div></div>
-        </div>
-        <div class="ah">
-          <div class="ah-ico ico-p">&#127912;</div>
-          <div><div class="ah-t">UX/UI Design &amp; Desarrollo</div><div class="ah-d">Proyectos reales desde investigaci&#243;n de usuarios hasta prototipo de alta fidelidad, web apps y m&#243;vil.</div></div>
-        </div>
-        <div class="ah">
-          <div class="ah-ico ico-g">&#127760;</div>
-          <div><div class="ah-t">Redes e Infraestructura</div><div class="ah-d">Certificada CCNAv7 en IP Networks, Switching, Routing &amp; Wireless Essentials, e IoT.</div></div>
-        </div>
+    <div class="cert-item">
+      <svg class="cert-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="8" r="6"/><path d="M15.477 12.89L17 22l-5-3-5 3 1.523-9.11"/></svg>
+      <div>
+        <div class="cert-name">CCNAv7: Switching, Routing and Wireless Essentials</div>
+        <div class="cert-org">Cisco Networking Academy</div>
       </div>
     </div>
-  </div>
-</section>
-
-<section id="skills">
-  <div class="si">
-    <div class="s-label">Habilidades</div>
-    <h2 class="s-title">Stack t&#233;cnico aplicado.</h2>
-    <p class="s-desc">Tecnolog&#237;as usadas en proyectos reales, formaci&#243;n universitaria y certificaciones obtenidas.</p>
-    <div class="sk-grid">
-      <div class="sk-card">
-        <div class="sk-ico" style="background:#eff6ff;">&#127912;</div>
-        <div class="sk-t">UX / UI Design</div>
-        <div class="sk-pills"><span class="sp">Figma</span><span class="sp">Penpot</span><span class="sp">Canva</span><span class="sp">Wireframing</span><span class="sp">Prototyping</span><span class="sp">Usability Testing</span><span class="sp">UX Research</span><span class="sp">Design Thinking</span></div>
-      </div>
-      <div class="sk-card">
-        <div class="sk-ico" style="background:#f0fdf4;">&#128187;</div>
-        <div class="sk-t">Desarrollo</div>
-        <div class="sk-pills"><span class="sp">PHP</span><span class="sp">HTML / CSS</span><span class="sp">JavaScript</span><span class="sp">Java</span><span class="sp">FlutterFlow</span><span class="sp">Firebase</span><span class="sp">MySQL</span><span class="sp">GitHub</span></div>
-      </div>
-      <div class="sk-card">
-        <div class="sk-ico" style="background:#fefce8;">&#128202;</div>
-        <div class="sk-t">Datos &amp; An&#225;lisis</div>
-        <div class="sk-pills"><span class="sp">SQL</span><span class="sp">Power BI</span><span class="sp">Excel Avanzado</span></div>
-      </div>
-      <div class="sk-card">
-        <div class="sk-ico" style="background:#f5f3ff;">&#127760;</div>
-        <div class="sk-t">Redes &middot; Certificado</div>
-        <div class="sk-pills"><span class="sp">CCNA IP Networks</span><span class="sp">Switching</span><span class="sp">Routing</span><span class="sp">Wireless</span><span class="sp">IoT</span></div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section id="proyectos">
-  <div class="si">
-    <div class="s-label">Proyectos</div>
-    <h2 class="s-title">Trabajo real, c&#243;digo real.</h2>
-    <p class="s-desc">Proyectos desarrollados en contexto universitario con tecnolog&#237;as aplicadas de extremo a extremo.</p>
-    <div class="pj-grid">
-      <div class="pj-card">
-        <div class="pj-banner bn-blue">&#9889;</div>
-        <div class="pj-body">
-          <div class="pj-meta"><span class="pj-badge bg-bl">Web App</span><span class="pj-badge bg-bl">Full Stack</span></div>
-          <div class="pj-name">PowerZone &#8212; Sistema de Gesti&#243;n</div>
-          <div class="pj-desc">Plataforma MVC para gesti&#243;n de gimnasio: membres&#237;as, control de acceso, pagos y panel de reportes. PHP con MySQL. Equipo de 5.</div>
-          <div class="pj-stack"><span class="pj-tag">PHP</span><span class="pj-tag">MySQL</span><span class="pj-tag">JavaScript</span><span class="pj-tag">CSS</span><span class="pj-tag">MVC</span></div>
-          <div class="pj-foot"><a class="pj-link" href="https://github.com/AdryHD/PowerZone" target="_blank" rel="noopener">Ver en GitHub <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a></div>
-        </div>
-      </div>
-      <div class="pj-card">
-        <div class="pj-banner bn-teal">&#9986;&#65039;</div>
-        <div class="pj-body">
-          <div class="pj-meta"><span class="pj-badge bg-tl">Mobile App</span><span class="pj-badge bg-tl">Full Stack</span></div>
-          <div class="pj-name">Meraki &#8212; App de Citas (Barber&#237;a)</div>
-          <div class="pj-desc">App m&#243;vil con roles admin/cliente, gesti&#243;n de horarios y servicios, datos en tiempo real con Firebase. Dise&#241;o UX centrado en el usuario del negocio local.</div>
-          <div class="pj-stack"><span class="pj-tag">FlutterFlow</span><span class="pj-tag">Firebase</span><span class="pj-tag">UX Design</span><span class="pj-tag">Prototipado</span></div>
-          <div class="pj-foot"><a class="pj-link" href="https://app.flutterflow.io/project/meraki-m1g0md" target="_blank" rel="noopener">Ver en FlutterFlow <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a></div>
-        </div>
-      </div>
-      <div class="pj-card">
-        <div class="pj-banner bn-purple">&#129306;</div>
-        <div class="pj-body">
-          <div class="pj-meta"><span class="pj-badge bg-pu">UX Design</span><span class="pj-badge bg-pu">Prototipado</span></div>
-          <div class="pj-name">CodeKids CR &#8212; Plataforma Educativa</div>
-          <div class="pj-desc">Dise&#241;o UX/UI para plataforma de programaci&#243;n para ni&#241;os en zonas rurales de Costa Rica. UX Research &#8594; prototipo de alta fidelidad en Penpot. Alineado con ODS 4.</div>
-          <div class="pj-stack"><span class="pj-tag">Penpot</span><span class="pj-tag">UX Research</span><span class="pj-tag">Design Thinking</span><span class="pj-tag">Wireframing</span></div>
-          <div class="pj-foot"><a class="pj-link" href="https://design.penpot.app/#/workspace?team-id=15f52329-dbfe-804d-8005-d58ed19c05f2&amp;file-id=1379938b-a15b-8002-8005-fbd0d5c5bf34&amp;page-id=1379938b-a15b-8002-8005-fbd0d5c5bf35" target="_blank" rel="noopener">Ver prototipo <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a></div>
-        </div>
-      </div>
-      <div class="pj-card">
-        <div class="pj-banner bn-amber">&#127856;</div>
-        <div class="pj-body">
-          <div class="pj-meta"><span class="pj-badge bg-am">Web Dev</span><span class="pj-badge bg-am">Backend</span></div>
-          <div class="pj-name">Que Arte Paster&#237;a &#8212; App Web</div>
-          <div class="pj-desc">App web con cat&#225;logo, pedidos en l&#237;nea e inventario. Arquitectura MVC en Java con BD relacional. Proyecto grupal de 3 integrantes.</div>
-          <div class="pj-stack"><span class="pj-tag">Java</span><span class="pj-tag">HTML</span><span class="pj-tag">CSS</span><span class="pj-tag">SQL</span></div>
-          <div class="pj-foot"><a class="pj-link" href="https://github.com/Tomas-2111/Proyecto_Pasteleria_G5" target="_blank" rel="noopener">Ver en GitHub <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a></div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section id="certs">
-  <div class="si">
-    <div class="s-label">Certificaciones</div>
-    <h2 class="s-title">Credenciales verificadas.</h2>
-    <p class="s-desc">Certificaciones emitidas por organizaciones reconocidas internacionalmente.</p>
-    <div class="ce-grid">
-      <div class="ce-card">
-        <div class="ce-ico"><svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="8" r="6"/><path d="M15.477 12.89L17 22l-5-3-5 3 1.523-9.11"/></svg></div>
-        <div><div class="ce-name">Scrum Fundamentals Certified (SFC)</div><div class="ce-org">SCRUMstudy &middot; ID 1070040</div></div>
-      </div>
-      <div class="ce-card">
-        <div class="ce-ico"><svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="8" r="6"/><path d="M15.477 12.89L17 22l-5-3-5 3 1.523-9.11"/></svg></div>
-        <div><div class="ce-name">CCNAv7: Introduction to Networks</div><div class="ce-org">Cisco Networking Academy &middot; 2024 / 2026</div></div>
-      </div>
-      <div class="ce-card">
-        <div class="ce-ico"><svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="8" r="6"/><path d="M15.477 12.89L17 22l-5-3-5 3 1.523-9.11"/></svg></div>
-        <div><div class="ce-name">CCNA: Switching, Routing &amp; Wireless Essentials</div><div class="ce-org">Cisco Networking Academy &middot; 2025</div></div>
-      </div>
-      <div class="ce-card">
-        <div class="ce-ico"><svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="8" r="6"/><path d="M15.477 12.89L17 22l-5-3-5 3 1.523-9.11"/></svg></div>
-        <div><div class="ce-name">Introduction to IoT</div><div class="ce-org">Cisco Networking Academy &middot; 2026</div></div>
+    <div class="cert-item">
+      <svg class="cert-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="8" r="6"/><path d="M15.477 12.89L17 22l-5-3-5 3 1.523-9.11"/></svg>
+      <div>
+        <div class="cert-name">Introduction to IoT</div>
+        <div class="cert-org">Cisco Networking Academy</div>
       </div>
     </div>
   </div>
-</section>
 
-<div class="cta">
-  <h2>&#191;Hablamos?</h2>
-  <p>Abierta a oportunidades en gesti&#243;n de proyectos, operaciones, UX/UI o desarrollo.</p>
-  <div class="cta-btns">
-    <a href="mailto:adryannahz@gmail.com" class="btn-p">
-      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
-      adryannahz@gmail.com
-    </a>
-    <a href="https://www.linkedin.com/in/adriana-hern%C3%A1ndez-dur%C3%A1n-3a87652b9/" target="_blank" rel="noopener" class="btn-o">
-      <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z"/><circle cx="4" cy="4" r="2"/></svg>
-      LinkedIn
-    </a>
-    <a href="https://github.com/AdryHD" target="_blank" rel="noopener" class="btn-o">
-      <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 00-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0020 4.77 5.07 5.07 0 0019.91 1S18.73.65 16 2.48a13.38 13.38 0 00-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 005 4.77a5.44 5.44 0 00-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 009 18.13V22"/></svg>
-      GitHub
-    </a>
-  </div>
-</div>
+</main>
 
-<footer>Adriana Hern&#225;ndez Dur&#225;n &nbsp;&middot;&nbsp; Heredia, Costa Rica &nbsp;&middot;&nbsp; <a href="https://github.com/AdryHD" target="_blank" rel="noopener">github.com/AdryHD</a> &nbsp;&middot;&nbsp; Actualizado mayo 2026</footer>
+<!-- ════════════════ FOOTER ════════════════ -->
+<footer>
+  Adriana Hernández Durán &nbsp;·&nbsp; Heredia, Costa Rica &nbsp;·&nbsp;
+  <a href="https://github.com/AdryHD" target="_blank" rel="noopener">github.com/AdryHD</a>
+  &nbsp;·&nbsp; Actualizado mayo 2026
+</footer>
 
 </body>
 </html>
